@@ -1,0 +1,37 @@
+$primary-color: #0099DA;
+$text-color: #e4bc59;
+$a-color: #333;
+$a-hover: #dc3545;
+
+$break-320: 320px;
+$break-400: 400px;
+$break-ssm: 500px;
+$break-sm: 576px;
+$break-md: 768px;
+$break-lg: 992px;
+$break-xl: 1200px;
+
+//text color based on background
+@function set-text-color($color){
+	@if(lightness($color) > 50){
+		@return #333;
+	}@else{
+		@return #fff;
+	}
+}
+
+//background
+@mixin set-background($color){
+	background-color: $color;
+	color: set-text-color($color);
+}
+html,body{
+	min-height: 100%;
+	overflow-x: hidden;
+}
+body{
+	font-family: 'Roboto', sans-serif;
+	font-size: 0.875rem;
+	background: url('../images/background.jpg') no-repeat left top;
+	background-size: 100% 969px;
+}
